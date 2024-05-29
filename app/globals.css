@@ -24,6 +24,11 @@ body {
   overflow-y: auto;
 }
 
+main {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

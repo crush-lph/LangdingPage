@@ -183,11 +183,15 @@ interface WrapProps {
 const CardWrapper: FC<WrapProps> = ({ title, desc, imgSlot, buttonSlot }) => {
   return (
     <div className="bg-[#fafafa] px-4 py-5 rounded-2xl">
-      <h3 className="mb-3 text-center">{title}</h3>
+      <TextSlowUpWrap>
+        <h3 className="mb-3 text-center">{title}</h3>
+      </TextSlowUpWrap>
 
-      <p className="text-center text-sm mx-4 font-normal text-[#1f283c] mb-8">
-        {desc}
-      </p>
+      <TextSlowUpWrap>
+        <p className="text-center text-sm mx-4 font-normal text-[#1f283c] mb-8">
+          {desc}
+        </p>
+      </TextSlowUpWrap>
 
       {imgSlot}
 
@@ -218,7 +222,6 @@ const DoForU = () => {
             <SlowInWrap className="absolute left-0 -top-[20px] w-[215px] h-[128px]">
               <Image
                 removeWrapper
-                // className="absolute left-0 -top-[20px] w-[215px] h-[128px]"
                 src={CDN_PREFIX_PC + "/product_bg_left_528.png"}
                 width={215}
                 height={128}
@@ -411,8 +414,8 @@ const DoForU = () => {
         title="Track Competitors"
         desc="See which products your competitors are selling. Monitor sales, shoppable videos and creator affiliations for any shop on TikTok."
         imgSlot={
-          <div className="relative max-w-[350px] max-h-[272px] mx-auto ">
-            <SlowInWrap>
+          <div className="relative max-w-[350px] h-[272px] max-h-[272px] mx-auto ">
+            <SlowInWrap className="w-[349px] h-[129px] absolute left-0 right-0 mx-auto">
               <Image
                 src={CDN_PREFIX_PC + "/shop_bg-top_528.png"}
                 width={349}
@@ -423,7 +426,10 @@ const DoForU = () => {
               ></Image>
             </SlowInWrap>
 
-            <SlowInWrap direction="right">
+            <SlowInWrap
+              direction="right"
+              className="w-[355px] h-[88px] absolute bottom-0 -left-2 "
+            >
               <Image
                 removeWrapper
                 src={CDN_PREFIX_PC + "/shop_bg_bottom_528.png"}
@@ -487,23 +493,18 @@ export default function Home() {
   const renderHeadView = () => {
     return (
       <div className="py-10 w-full px-4 bg-liner-gradient-home">
-        <TextSlowUpWrap>
-          <h1 className="text-center font-bold text-[26px] px-8 mb-6 mt-10">
-            All the data you need to start and grow your TikTok Shop
-          </h1>
-        </TextSlowUpWrap>
+        <h1 className="text-center font-bold text-[26px] px-8 mb-6 mt-10">
+          All the data you need to start and grow your TikTok Shop
+        </h1>
 
-        <TextSlowUpWrap>
-          <p className="font-normal text-sm text-center mb-4">
-            See which products, creators and videos are generating the most
-            sales in any category with{" "}
-            <span className="text-vi font-bold"> 60M+ </span> products sales
-            data on FastMoss.
-          </p>
-        </TextSlowUpWrap>
+        <p className="font-normal text-sm text-center mb-4">
+          See which products, creators and videos are generating the most sales
+          in any category with <span className="text-vi font-bold"> 60M+ </span>{" "}
+          products sales data on FastMoss.
+        </p>
 
         {/* SearchBar */}
-        <TextSlowUpWrap
+        <motion.div
           whileTap={{ scale: 0.96 }}
           onClick={() => {
             console.log("open the search page");
@@ -523,16 +524,16 @@ export default function Home() {
           <span className="text-oe text-xs font-medium text-[#99A8BA]">
             Search for any product / creator / shop on TikTok
           </span>
-        </TextSlowUpWrap>
+        </motion.div>
 
-        <TextSlowUpWrap className="text-center mb-6">
+        <div className="text-center mb-6">
           <StartButton></StartButton>
-        </TextSlowUpWrap>
+        </div>
 
-        <TextSlowUpWrap className="text-base font-bold text-center px-8 mb-5">
+        <div className="text-base font-bold text-center px-8 mb-5">
           Trusted by over <span className="text-vi"> 30,000 </span> TikTok
           Sellers and Agencies :
-        </TextSlowUpWrap>
+        </div>
         <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-40px),transparent_100%)]">
           <ul className="bg-opacity-0 flex items-center [&_li]:mx-[12px] [&_img]:max-w-none animate-infinite-scroll">
             {shopImgs.map((img: string, idx: number) => (
@@ -573,7 +574,7 @@ export default function Home() {
   return (
     <>
       <Header></Header>
-      <main className={`mx-auto w-full`}>
+      <main className={`mx-auto w-full `}>
         {renderHeadView()}
 
         {/* do for u */}
