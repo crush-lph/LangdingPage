@@ -9,13 +9,13 @@ import { HTMLMotionProps, motion, MotionConfig, Variants } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const shopImgs: string[] = [
-  `/acquco_logo_529.png`,
-  `/Cider_logo_529.png`,
-  `/Frame_logo_529.png`,
-  `/Group_logo_529.png`,
-  `/logoH5_logo_529.png`,
-  `/MEOKY_logo _529.png`,
-  `/wyze_white_logo_529.png`,
+  `/logo1_24529.png`,
+  `/logo2_24529.png`,
+  `/logo3_24529.png`,
+  `/logo4_24529.png`,
+  `/logo5_24529.png`,
+  `/logo6_24529.png`,
+  `/logo7_24529.png`,
 ];
 
 type ReasonModel = {
@@ -534,13 +534,13 @@ export default function Home() {
           Sellers and Agencies :
         </TextSlowUpWrap>
         <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-40px),transparent_100%)]">
-          <ul className="bg-opacity-0 flex items-center [&_li]:mx-[24px] [&_img]:max-w-none animate-infinite-scroll">
+          <ul className="bg-opacity-0 flex items-center [&_li]:mx-[12px] [&_img]:max-w-none animate-infinite-scroll">
             {shopImgs.map((img: string, idx: number) => (
               <li key={idx}>
                 <Image
                   // className="mix-blend-multiply"
-                  width={104}
-                  height={37}
+                  width={72}
+                  height={24}
                   src={`${CDN_PREFIX_PC}${img}`}
                   alt={img}
                   radius="none"
@@ -549,15 +549,15 @@ export default function Home() {
             ))}
           </ul>
           <ul
-            className="flex  items-center [&_li]:mx-[24px] [&_img]:max-w-none animate-infinite-scroll"
+            className="flex  items-center [&_li]:mx-[12px] [&_img]:max-w-none animate-infinite-scroll"
             aria-hidden="true"
           >
             {shopImgs.map((img: string, idx: number) => (
               <li key={idx}>
                 <Image
                   // className="mix-blend-multiply"
-                  width={104}
-                  height={37}
+                  width={72}
+                  height={24}
                   src={`${CDN_PREFIX_PC}${img}`}
                   alt={img}
                   radius="none"
@@ -573,7 +573,7 @@ export default function Home() {
   return (
     <>
       <Header></Header>
-      <main>
+      <main className={`mx-auto w-full`}>
         {renderHeadView()}
 
         {/* do for u */}
