@@ -6,22 +6,49 @@ import { Button, Image } from "@nextui-org/react";
 import { Children, FC, ReactNode, useEffect, useState } from "react";
 import { HTMLMotionProps, motion, MotionConfig, Variants } from "framer-motion";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+
 const shopImgs: string[] = [
-  `/FM_new_home_shop1.png`,
-  `/FM_new_home_shop2.png`,
-  `/FM_new_home_shop3.png`,
-  `/FM_new_home_shop4.png`,
-  `/FM_new_home_shop5.png`,
-  `/FM_new_home_shop6.png`,
-  `/FM_new_home_shop7.png`,
-  `/FM_new_home_shop8.png`,
-  `/FM_new_home_shop9.png`,
-  `/FM_new_home_shop10.png`,
-  `/FM_new_home_shop11.png`,
-  `/FM_new_home_shop12.png`,
-  `/FM_new_home_shop13.png`,
-  `/FM_new_home_shop14.png`,
+  `/acquco_logo_529.png`,
+  `/Cider_logo_529.png`,
+  `/Frame_logo_529.png`,
+  `/Group_logo_529.png`,
+  `/logoH5_logo_529.png`,
+  `/MEOKY_logo _529.png`,
+  `/wyze_white_logo_529.png`,
 ];
+
+type ReasonModel = {
+  name: string;
+  job: string;
+  evaluate: string;
+  imgName: string;
+};
+
+const reasons: ReasonModel[] = [
+  {
+    name: "Viva Naturals",
+    job: "Top Ranking US TikTok Shop",
+    evaluate: `I want to contribute and encourage others to use FastMoss. It's a really awesome tool for creators who generated millions of sales for others we can find and samples for those creators as well. FastMoss is a game changer really`,
+    imgName: `FM_new_home_reason1.png`,
+  },
+  {
+    name: "Jeremy the Fun Hairstylist",
+    job: "Top Content Creator in TikTok US",
+    evaluate: `If you're a creator, you will love the list of viral products updated every single day on FastMoss, which makes it even easier to get connected with the right sellers.`,
+    imgName: `FM_new_home_reason2.png`,
+  },
+  {
+    name: "Samantha",
+    job: "|UGC|TikTokShopCreator",
+    evaluate: `It's like a mentor that understand exactly what i'm looking for as a TikTok shop creators, only does FastMoss guides me to the top selling products, but it also shows me the top affiliates for thoes products. It's kind of like having a backstage pass to success`,
+    imgName: `FM_new_home_reason3.png`,
+  },
+];
+
+const Clients = () => {
+  return <></>;
+};
 
 interface MotionWrapProps extends HTMLMotionProps<"div"> {
   direction?: "left" | "right";
@@ -507,11 +534,11 @@ export default function Home() {
           Sellers and Agencies :
         </TextSlowUpWrap>
         <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-40px),transparent_100%)]">
-          <ul className="bg-opacity-0 opacity-70 flex [&_li]:mx-[12px] [&_img]:max-w-none animate-infinite-scroll">
+          <ul className="bg-opacity-0 flex items-center [&_li]:mx-[24px] [&_img]:max-w-none animate-infinite-scroll">
             {shopImgs.map((img: string, idx: number) => (
               <li key={idx}>
                 <Image
-                  className="mix-blend-multiply"
+                  // className="mix-blend-multiply"
                   width={104}
                   height={37}
                   src={`${CDN_PREFIX_PC}${img}`}
@@ -522,13 +549,13 @@ export default function Home() {
             ))}
           </ul>
           <ul
-            className="opacity-70 flex  [&_li]:mx-[12px] [&_img]:max-w-none animate-infinite-scroll"
+            className="flex  items-center [&_li]:mx-[24px] [&_img]:max-w-none animate-infinite-scroll"
             aria-hidden="true"
           >
             {shopImgs.map((img: string, idx: number) => (
               <li key={idx}>
                 <Image
-                  className="mix-blend-multiply"
+                  // className="mix-blend-multiply"
                   width={104}
                   height={37}
                   src={`${CDN_PREFIX_PC}${img}`}
