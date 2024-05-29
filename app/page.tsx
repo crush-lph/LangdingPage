@@ -7,6 +7,7 @@ import { Children, FC, ReactNode, useEffect, useState } from "react";
 import { HTMLMotionProps, motion, MotionConfig, Variants } from "framer-motion";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 const shopImgs: string[] = [
   `/logo1_24529.png`,
@@ -46,8 +47,73 @@ const reasons: ReasonModel[] = [
   },
 ];
 
-const Clients = () => {
-  return <></>;
+const ClientsSwiper = () => {
+  return (
+    <Swiper
+      navigation={{
+        prevEl: ".reasons_prev_el",
+        nextEl: ".reasons_next_el",
+      }}
+      pagination={{
+        clickable: true,
+        el: ".reasons_pagination",
+      }}
+      loop={true}
+      autoplay={{
+        delay: 5000,
+        disableOnInteraction: false,
+      }}
+      modules={[Navigation, Autoplay, Pagination]}
+      className="relative overflow-visible"
+    >
+      {reasons.map((item: ReasonModel, idx: number) => (
+        <SwiperSlide key={idx}>
+          <div className="mt-[30px] px-[60px] mx-auto md:max-w-screen-md flex flex-col md:flex-row items-center">
+            <div className="relative md:mr-[33px] max-md:self-center">
+              <Image
+                width={342}
+                height={347}
+                src={`${CDN_PREFIX_PC}/${item.imgName}`}
+                alt={item.imgName}
+              />
+            </div>
+            <div className="flex-1 flex flex-col">
+              <h3 className="max-md:text-center text-[32px] leading-[48px] font-bold">
+                {item.name}
+              </h3>
+              {/* {buildBtn(
+                item.job,
+                "py-[4px] px-[20px] mb-[16px] max-md:mx-auto"
+              )} */}
+              <p className="font-bold text-[16px] leading-[26px] max-md:text-center">
+                {item.evaluate}
+              </p>
+              <div className="flex justify-end mt-[43px]">
+                <Image
+                  width={189}
+                  height={28}
+                  src={`${CDN_PREFIX_PC}/FM_new_home_stars.png`}
+                  className="object-contain"
+                  alt="FM_new_home_stars.png"
+                />
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
+      ))}
+      <div className="reasons_pagination flex justify-center pt-[65px]" />
+      <div className="absolute top-0 w-full">
+        <div className="mx-auto md:max-w-screen-md relative h-[377px]">
+          <div className="absolute z-20 cursor-pointer top-[50%] left-[0]  w-[48px] h-[48px] rounded-full bg-white flex items-center justify-center reasons_prev_el">
+            {"<"}
+          </div>
+          <div className="absolute z-20 cursor-pointer top-[50%] right-[0] w-[48px] h-[48px] rounded-full bg-white flex items-center justify-center reasons_next_el">
+            {">"}
+          </div>
+        </div>
+      </div>
+    </Swiper>
+  );
 };
 
 interface MotionWrapProps extends HTMLMotionProps<"div"> {
@@ -414,8 +480,8 @@ const DoForU = () => {
         title="Track Competitors"
         desc="See which products your competitors are selling. Monitor sales, shoppable videos and creator affiliations for any shop on TikTok."
         imgSlot={
-          <div className="relative max-w-[350px] h-[272px] max-h-[272px] mx-auto ">
-            <SlowInWrap className="w-[349px] h-[129px] absolute left-0 right-0 mx-auto">
+          <div className="relative max-w-[350px]  max-h-[272px] mx-auto ">
+            <SlowInWrap>
               <Image
                 src={CDN_PREFIX_PC + "/shop_bg-top_528.png"}
                 width={349}
@@ -426,10 +492,7 @@ const DoForU = () => {
               ></Image>
             </SlowInWrap>
 
-            <SlowInWrap
-              direction="right"
-              className="w-[355px] h-[88px] absolute bottom-0 -left-2 "
-            >
+            <SlowInWrap direction="right" className="relative -left-3">
               <Image
                 removeWrapper
                 src={CDN_PREFIX_PC + "/shop_bg_bottom_528.png"}
@@ -485,11 +548,6 @@ const DisCord = () => {
 };
 
 export default function Home() {
-  // Swiper
-  const renderSwiper = () => {
-    return <>Swiper</>;
-  };
-
   const renderHeadView = () => {
     return (
       <div className="py-10 w-full px-4 bg-liner-gradient-home">
@@ -583,8 +641,8 @@ export default function Home() {
         {/* discord */}
         <DisCord />
 
-        {/* customer swiper */}
-        {renderSwiper()}
+        {/* clients swiper */}
+        {/* <ClientsSwiper></ClientsSwiper> */}
 
         {/* get start */}
         <GetStart />
