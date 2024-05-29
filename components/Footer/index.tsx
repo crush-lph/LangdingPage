@@ -5,6 +5,7 @@ import { navList, socialMedias } from "./constant";
 import type { MenuItem } from "./constant";
 import { CDN_PREFIX_PC } from "@/constants";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 // 导航
 const FooterNav: FC<{ menu: Array<MenuItem> }> = ({ menu }) => {
@@ -21,27 +22,45 @@ const FooterNav: FC<{ menu: Array<MenuItem> }> = ({ menu }) => {
       {menu?.map((item) => {
         return (
           <div key={item.name}>
-            <div
-              className="px-4 cursor-pointer hover:bg-[#fef5f5] font-bold text-sm py-2"
+            <motion.div
+              className="px-4 cursor-pointer hover:bg-[#fef5f5] font-bold text-sm py-3"
               onClick={() => {
                 handleClick(item);
               }}
+              initial={{
+                backgroundColor: "rgba(255,255,255,1)",
+                scale: 1,
+              }}
+              whileTap={{
+                backgroundColor: "rgb(254,245,245,1)",
+                scale: 0.95,
+              }}
+              transition={{ duration: 0.3 }}
             >
               {item.name}
-            </div>
+            </motion.div>
 
             <>
               {item.children?.map((item) => {
                 return (
-                  <div
-                    className="px-4 cursor-pointer hover:bg-[#fef5f5] font-thin text-sm py-3 text-[#1F283C]"
+                  <motion.div
+                    initial={{
+                      backgroundColor: "rgba(255,255,255,1)",
+                      scale: 1,
+                    }}
+                    whileTap={{
+                      backgroundColor: "rgb(254,245,245,1)",
+                      scale: 0.95,
+                      radius: 12,
+                    }}
+                    className="px-4 cursor-pointer  font-thin text-sm py-3 text-[#1F283C]"
                     key={item.name}
                     onClick={() => {
                       handleClick(item);
                     }}
                   >
                     {item.name}
-                  </div>
+                  </motion.div>
                 );
               })}
             </>
