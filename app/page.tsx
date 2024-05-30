@@ -2,12 +2,14 @@
 
 import { Footer, Header } from "@/components";
 import { CDN_PREFIX_PC } from "@/constants";
-import { Button, Image } from "@nextui-org/react";
+import { Button, Chip, Image } from "@nextui-org/react";
 import { Children, FC, ReactNode, useEffect, useState } from "react";
 import { HTMLMotionProps, motion, MotionConfig, Variants } from "framer-motion";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 
 const shopImgs: string[] = [
   `/logo1_24529.png`,
@@ -31,88 +33,113 @@ const reasons: ReasonModel[] = [
     name: "Viva Naturals",
     job: "Top Ranking US TikTok Shop",
     evaluate: `I want to contribute and encourage others to use FastMoss. It's a really awesome tool for creators who generated millions of sales for others we can find and samples for those creators as well. FastMoss is a game changer really`,
-    imgName: `FM_new_home_reason1.png`,
+    imgName: `swiper_3_2_530.png`,
   },
   {
     name: "Jeremy the Fun Hairstylist",
     job: "Top Content Creator in TikTok US",
     evaluate: `If you're a creator, you will love the list of viral products updated every single day on FastMoss, which makes it even easier to get connected with the right sellers.`,
-    imgName: `FM_new_home_reason2.png`,
+    imgName: `swiper_1_2_530.png`,
   },
   {
     name: "Samantha",
     job: "|UGC|TikTokShopCreator",
     evaluate: `It's like a mentor that understand exactly what i'm looking for as a TikTok shop creators, only does FastMoss guides me to the top selling products, but it also shows me the top affiliates for thoes products. It's kind of like having a backstage pass to success`,
-    imgName: `FM_new_home_reason3.png`,
+    imgName: `swiper_2_2_530.png`,
   },
 ];
 
 const ClientsSwiper = () => {
   return (
-    <Swiper
-      navigation={{
-        prevEl: ".reasons_prev_el",
-        nextEl: ".reasons_next_el",
-      }}
-      pagination={{
-        clickable: true,
-        el: ".reasons_pagination",
-      }}
-      loop={true}
-      autoplay={{
-        delay: 5000,
-        disableOnInteraction: false,
-      }}
-      modules={[Navigation, Autoplay, Pagination]}
-      className="relative overflow-visible"
-    >
-      {reasons.map((item: ReasonModel, idx: number) => (
-        <SwiperSlide key={idx}>
-          <div className="mt-[30px] px-[60px] mx-auto md:max-w-screen-md flex flex-col md:flex-row items-center">
-            <div className="relative md:mr-[33px] max-md:self-center">
-              <Image
-                width={342}
-                height={347}
-                src={`${CDN_PREFIX_PC}/${item.imgName}`}
-                alt={item.imgName}
-              />
-            </div>
-            <div className="flex-1 flex flex-col">
-              <h3 className="max-md:text-center text-[32px] leading-[48px] font-bold">
-                {item.name}
-              </h3>
-              {/* {buildBtn(
-                item.job,
-                "py-[4px] px-[20px] mb-[16px] max-md:mx-auto"
-              )} */}
-              <p className="font-bold text-[16px] leading-[26px] max-md:text-center">
-                {item.evaluate}
-              </p>
-              <div className="flex justify-end mt-[43px]">
+    <div className="py-8">
+      <TextSlowUpWrap>
+        <h3 className="mb-5 text-base font-bold text-center">
+          Here's why the clients love FastMoss
+        </h3>
+      </TextSlowUpWrap>
+      <Swiper
+        initialSlide={0}
+        navigation={{
+          prevEl: ".reasons_prev_el",
+          nextEl: ".reasons_next_el",
+        }}
+        pagination={{
+          clickable: true,
+          el: ".reasons_pagination",
+        }}
+        loop={true}
+        centeredSlides={true}
+        slidesPerView={"auto"}
+        // autoplay={{
+        //   delay: 5000,
+        //   disableOnInteraction: false,
+        // }}
+        spaceBetween={12}
+        modules={[Navigation, Autoplay, Pagination]}
+        className="relative overflow-visible w-full"
+        autoHeight
+      >
+        {reasons.map((item: ReasonModel, idx: number) => (
+          <SwiperSlide
+            key={idx}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "100%",
+            }}
+            className="!w-[65%]"
+          >
+            <div className="flex flex-col items-center my-4 py-4 w-full h-full px-3 rounded-2xl shadow-[0px_0px_10px_0px_rgba(0,0,0,0.05)]">
+              <div className="relative md:mr-[33px] max-md:self-center">
                 <Image
-                  width={189}
-                  height={28}
-                  src={`${CDN_PREFIX_PC}/FM_new_home_stars.png`}
-                  className="object-contain"
-                  alt="FM_new_home_stars.png"
+                  width={88}
+                  height={88}
+                  src={`${CDN_PREFIX_PC}/${item.imgName}`}
+                  alt={item.imgName}
                 />
               </div>
+              <div className="flex-1 flex flex-col">
+                <h3 className="text-center text-sm  font-bold">{item.name}</h3>
+                <Chip
+                  classNames={{
+                    base: "bg-[#99a8ba] mx-auto my-2",
+                    content: "text-white font-semibold text-xs",
+                  }}
+                >
+                  {item.job}
+                </Chip>
+                <p className="font-normal text-sm text-center">
+                  {item.evaluate}
+                </p>
+              </div>
             </div>
+          </SwiperSlide>
+        ))}
+
+        {/* 分页器 */}
+
+        {/* 切换按键 */}
+        <div className="flex justify-center items-center gap-3 mt-5 ">
+          <div className="relative z-20 cursor-pointer  flex items-center justify-center reasons_prev_el">
+            <Image
+              src={CDN_PREFIX_PC + "/swiper_prev_icon_530.png"}
+              alt="next"
+              width={28}
+              height={13}
+            />
           </div>
-        </SwiperSlide>
-      ))}
-      <div className="reasons_pagination flex justify-center pt-[65px]" />
-      <div className="absolute top-0 w-full">
-        <div className="mx-auto md:max-w-screen-md relative h-[377px]">
-          <div className="absolute z-20 cursor-pointer top-[50%] left-[0]  w-[48px] h-[48px] rounded-full bg-white flex items-center justify-center reasons_prev_el">
-            {"<"}
-          </div>
-          <div className="absolute z-20 cursor-pointer top-[50%] right-[0] w-[48px] h-[48px] rounded-full bg-white flex items-center justify-center reasons_next_el">
-            {">"}
+          <div className="relative z-20 cursor-pointer  flex items-center justify-center reasons_next_el">
+            <Image
+              src={CDN_PREFIX_PC + "/swiper_next_icon_530.png"}
+              alt="next"
+              width={28}
+              height={13}
+            />
           </div>
         </div>
-      </div>
-    </Swiper>
+      </Swiper>
+    </div>
   );
 };
 
@@ -174,16 +201,17 @@ const SlowInHorizontal: FC<MotionWrapProps> = ({
 const TextSlowUpWrap: FC<MotionWrapProps> = ({ children, ...rest }) => {
   return (
     <motion.div
-      initial={{ y: 50, opacity: 0 }}
+      initial={{ y: 50, opacity: 0, scale: 0.9 }}
       whileInView={{
         y: 0,
+        scale: 1,
         opacity: 1,
         transition: {
           duration: 0.5,
           ease: "easeInOut",
         },
       }}
-      viewport={{ once: true }}
+      // viewport={{ once: true }}
       {...rest}
     >
       {children}
@@ -226,15 +254,22 @@ const StartButton = () => {
 const GetStart = () => {
   return (
     <div className="bg-[#fef5f5] p-10 flex flex-col items-center">
-      <div className="font-bold text-base">Get started with FastMoss today</div>
+      <TextSlowUpWrap>
+        <div className="font-bold text-base">
+          Get started with FastMoss today
+        </div>
+      </TextSlowUpWrap>
+      <TextSlowUpWrap>
+        <div className="text-center mt-2  mx-8 text-sm font-normal">
+          Sign up now to get 3 days Basic plan for free!
+        </div>
+      </TextSlowUpWrap>
 
-      <div className="text-center mt-2  mx-8 text-sm font-normal">
-        Sign up now to get 3 days Basic plan for free!
-      </div>
-
-      <div className="text-center mt-5">
-        <StartButton></StartButton>
-      </div>
+      <TextSlowUpWrap>
+        <div className="text-center mt-5">
+          <StartButton></StartButton>
+        </div>
+      </TextSlowUpWrap>
     </div>
   );
 };
@@ -531,17 +566,35 @@ const DoForU = () => {
 
 const DisCord = () => {
   return (
-    <div className="relative w-full">
-      <Image
-        className="w-full"
-        width={390}
-        height={252}
-        src={CDN_PREFIX_PC + "/discord_background_240528.png"}
-        alt="Discord"
-        radius="none"
-      ></Image>
-      <div className="z-10 absolute bottom-4 left-0 right-0 text-center">
-        <Button color="primary">Join now</Button>
+    <div className="relative w-full mx-auto">
+      <div className="w-[390px] h-[252px] mx-auto">
+        <Image
+          className="w-full"
+          width={390}
+          height={252}
+          src={CDN_PREFIX_PC + "/discord_background_240528.png"}
+          alt="Discord"
+          radius="none"
+        ></Image>
+        <div className="z-10 absolute bottom-4 left-0 right-0 text-center">
+          <Button
+            startContent={
+              <div className="w-5 h-5 flex items-start">
+                <Image
+                  src={CDN_PREFIX_PC + "/discord_icon_530.png"}
+                  width={30}
+                  disableSkeleton
+                  height={30}
+                  radius="none"
+                  alt="trial"
+                ></Image>
+              </div>
+            }
+            color="primary"
+          >
+            Join now
+          </Button>
+        </div>
       </div>
     </div>
   );
@@ -642,7 +695,7 @@ export default function Home() {
         <DisCord />
 
         {/* clients swiper */}
-        {/* <ClientsSwiper></ClientsSwiper> */}
+        <ClientsSwiper></ClientsSwiper>
 
         {/* get start */}
         <GetStart />
