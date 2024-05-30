@@ -3,7 +3,14 @@
 import { Footer, Header } from "@/components";
 import { CDN_PREFIX_PC } from "@/constants";
 import { Button, Chip, Image } from "@nextui-org/react";
-import { Children, FC, ReactNode, useEffect, useState } from "react";
+import {
+  Children,
+  FC,
+  ReactNode,
+  useEffect,
+  useLayoutEffect,
+  useState,
+} from "react";
 import { HTMLMotionProps, motion, MotionConfig, Variants } from "framer-motion";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -33,31 +40,28 @@ const reasons: ReasonModel[] = [
   {
     name: "Viva Naturals",
     job: "Top Ranking US TikTok Shop",
-    evaluate: `I want to contribute and encourage others to use FastMoss. It's a really awesome tool for creators who generated millions of sales for others we can find and samples for those creators as well. FastMoss is a game changer really`,
+    evaluate: `I want to contribute and encourage others to use FastMoss. It&apos;s a really awesome tool for creators who generated millions of sales for others we can find and samples for those creators as well. FastMoss is a game changer really`,
     imgName: `swiper_3_2_530.png`,
   },
   {
     name: "Jeremy the Fun Hairstylist",
     job: "Top Content Creator in TikTok US",
-    evaluate: `If you're a creator, you will love the list of viral products updated every single day on FastMoss, which makes it even easier to get connected with the right sellers.`,
+    evaluate: `If you&apos;re a creator, you will love the list of viral products updated every single day on FastMoss, which makes it even easier to get connected with the right sellers.`,
     imgName: `swiper_1_2_530.png`,
   },
   {
     name: "Samantha",
     job: "|UGC|TikTokShopCreator",
-    evaluate: `It's like a mentor that understand exactly what i'm looking for as a TikTok shop creators, only does FastMoss guides me to the top selling products, but it also shows me the top affiliates for thoes products. It's kind of like having a backstage pass to success`,
+    evaluate: `It&apos;s like a mentor that understand exactly what i&apos;m looking for as a TikTok shop creators, only does FastMoss guides me to the top selling products, but it also shows me the top affiliates for thoes products. It&apos;s kind of like having a backstage pass to success`,
     imgName: `swiper_2_2_530.png`,
   },
 ];
-/* eslint-enable react/no-unescaped-entities */
-
 const ClientsSwiper = () => {
   return (
     <div className="py-8">
       <TextSlowUpWrap>
         <h2 className="mb-5 text-base font-bold text-center">
-          Here's why the clients love FastMoss
-          {/* eslint-disable-line react/no-unescaped-entities */}
+          Here&apos;s why the clients love FastMoss
         </h2>
       </TextSlowUpWrap>
       <Swiper
@@ -112,9 +116,10 @@ const ClientsSwiper = () => {
                 >
                   {item.job}
                 </Chip>
-                <p className="font-normal text-sm text-center">
-                  {item.evaluate}
-                </p>
+                <p
+                  className="font-normal text-sm text-center"
+                  dangerouslySetInnerHTML={{ __html: item.evaluate }}
+                ></p>
               </div>
             </div>
           </SwiperSlide>
@@ -145,6 +150,7 @@ const ClientsSwiper = () => {
     </div>
   );
 };
+/* eslint-enable react/no-unescaped-entities */
 
 interface MotionWrapProps extends HTMLMotionProps<"div"> {
   direction?: "left" | "right";
