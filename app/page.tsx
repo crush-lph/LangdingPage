@@ -28,6 +28,7 @@ type ReasonModel = {
   imgName: string;
 };
 
+/* eslint-disable react/no-unescaped-entities */
 const reasons: ReasonModel[] = [
   {
     name: "Viva Naturals",
@@ -48,13 +49,15 @@ const reasons: ReasonModel[] = [
     imgName: `swiper_2_2_530.png`,
   },
 ];
+/* eslint-enable react/no-unescaped-entities */
 
 const ClientsSwiper = () => {
   return (
     <div className="py-8">
       <TextSlowUpWrap>
         <h2 className="mb-5 text-base font-bold text-center">
-          Here&apos;s why the clients love FastMoss
+          Here's why the clients love FastMoss
+          {/* eslint-disable-line react/no-unescaped-entities */}
         </h2>
       </TextSlowUpWrap>
       <Swiper
