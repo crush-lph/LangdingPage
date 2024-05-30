@@ -54,7 +54,7 @@ const ClientsSwiper = () => {
     <div className="py-8">
       <TextSlowUpWrap>
         <h2 className="mb-5 text-base font-bold text-center">
-          Here's why the clients love FastMoss
+          {"Here's why the clients love FastMoss"}
         </h2>
       </TextSlowUpWrap>
       <Swiper
@@ -201,7 +201,7 @@ const SlowInHorizontal: FC<MotionWrapProps> = ({
 const TextSlowUpWrap: FC<MotionWrapProps> = ({ children, ...rest }) => {
   return (
     <motion.div
-      initial={{ y: 50, opacity: 0, scale: 0.9 }}
+      initial={{ y: 20, opacity: 0, scale: 0.9 }}
       whileInView={{
         y: 0,
         scale: 1,
