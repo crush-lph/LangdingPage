@@ -89,6 +89,7 @@ const Header = () => {
                 {item.children?.map((child) => {
                   return (
                     <motion.div
+                      key={child.name}
                       className="text-sm p-5 font-normal text-[#1f283c]"
                       initial={{
                         backgroundColor: "rgba(255,255,255,0)",
