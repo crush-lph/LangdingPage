@@ -32,7 +32,10 @@ const Header = () => {
   ];
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen}>
+    <Navbar
+      classNames={{ base: "bg-[#FEF5F5]" }}
+      onMenuOpenChange={setIsMenuOpen}
+    >
       <NavbarContent>
         <NavbarBrand>
           <Image

@@ -53,9 +53,9 @@ const ClientsSwiper = () => {
   return (
     <div className="py-8">
       <TextSlowUpWrap>
-        <h3 className="mb-5 text-base font-bold text-center">
+        <h2 className="mb-5 text-base font-bold text-center">
           Here's why the clients love FastMoss
-        </h3>
+        </h2>
       </TextSlowUpWrap>
       <Swiper
         initialSlide={0}
@@ -253,22 +253,29 @@ const StartButton = () => {
  */
 const GetStart = () => {
   return (
-    <div className="bg-[#fef5f5] p-10 flex flex-col items-center">
-      <TextSlowUpWrap>
-        <div className="font-bold text-base">
-          Get started with FastMoss today
-        </div>
-      </TextSlowUpWrap>
-      <TextSlowUpWrap>
-        <div className="text-center mt-2  mx-8 text-sm font-normal">
-          Sign up now to get 3 days Basic plan for free!
-        </div>
+    <div className="relative bg-[#fef5f5] p-10 flex flex-col items-center">
+      <TextSlowUpWrap className="font-bold text-base">
+        <h3>Get started with FastMoss today</h3>
       </TextSlowUpWrap>
 
-      <TextSlowUpWrap>
-        <div className="text-center mt-5">
-          <StartButton></StartButton>
-        </div>
+      <TextSlowUpWrap className="text-center mt-2  mx-8 text-sm font-normal">
+        Sign up now to get 3 days Basic plan for free!
+      </TextSlowUpWrap>
+
+      <TextSlowUpWrap
+        initial={{ y: 20, opacity: 0, scale: 0.9 }}
+        whileInView={{
+          y: 0,
+          scale: 1,
+          opacity: 1,
+          transition: {
+            duration: 0.5,
+            ease: "easeInOut",
+          },
+        }}
+        className="text-center mt-5"
+      >
+        <StartButton></StartButton>
       </TextSlowUpWrap>
     </div>
   );
@@ -285,7 +292,7 @@ const CardWrapper: FC<WrapProps> = ({ title, desc, imgSlot, buttonSlot }) => {
   return (
     <div className="bg-[#fafafa] px-4 py-5 rounded-2xl">
       <TextSlowUpWrap>
-        <h3 className="mb-3 text-center">{title}</h3>
+        <h2 className="mb-3 text-center font-bold text-base">{title}</h2>
       </TextSlowUpWrap>
 
       <TextSlowUpWrap>
@@ -641,10 +648,10 @@ export default function Home() {
           <StartButton></StartButton>
         </div>
 
-        <div className="text-base font-bold text-center px-8 mb-5">
+        <h2 className="text-base font-bold text-center px-8 mb-5">
           Trusted by over <span className="text-vi"> 30,000 </span> TikTok
           Sellers and Agencies :
-        </div>
+        </h2>
         <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-40px),transparent_100%)]">
           <ul className="bg-opacity-0 flex items-center [&_li]:mx-[12px] [&_img]:max-w-none animate-infinite-scroll">
             {shopImgs.map((img: string, idx: number) => (

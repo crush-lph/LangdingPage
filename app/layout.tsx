@@ -9,8 +9,12 @@ import classNames from "classnames";
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "FastMoss",
-  description: "FastMoss",
+  title:
+    "FastMoss | TikTok Shop Analytics Tool for Viral Product and Creator Research",
+  description:
+    "See which products, creators and shoppable videos are going viral on TikTok. Used by over 700,000 TikTok Shop sellers to research sales data for any product.",
+  keywords:
+    "FastMoss, TikTok data analysis, TikTok Shop Analytics, TikTok e-commerce, TikTok product, TikTok creator, TikTok shop, TikTok operation, TikTok analytics Tool, TikTok ads",
 };
 
 export default function RootLayout({
