@@ -77,10 +77,10 @@ const ClientsSwiper = () => {
         loop={true}
         centeredSlides={true}
         slidesPerView={"auto"}
-        // autoplay={{
-        //   delay: 5000,
-        //   disableOnInteraction: false,
-        // }}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
         spaceBetween={12}
         modules={[Navigation, Autoplay, Pagination]}
         className="relative overflow-visible w-full"

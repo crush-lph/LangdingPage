@@ -23,7 +23,7 @@ const FooterNav: FC<{ menu: Array<MenuItem> }> = ({ menu }) => {
         return (
           <div key={item.name}>
             <motion.div
-              className="px-4 cursor-pointer hover:bg-[#fef5f5] font-bold text-sm py-3"
+              className="px-4 cursor-pointer font-bold text-sm py-3"
               onClick={() => {
                 handleClick(item);
               }}
