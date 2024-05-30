@@ -54,7 +54,7 @@ const ClientsSwiper = () => {
     <div className="py-8">
       <TextSlowUpWrap>
         <h2 className="mb-5 text-base font-bold text-center">
-          {"Here's why the clients love FastMoss"}
+          Here&apos;s why the clients love FastMoss
         </h2>
       </TextSlowUpWrap>
       <Swiper
