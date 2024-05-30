@@ -25,14 +25,6 @@ interface MenuItemProps {
   menuList: Omit<TMenuItem, "children">;
 }
 
-const HeaderMenuItem: FC<MenuItemProps> = ({ menuList }) => {
-  return (
-    <AccordionItem key={item.name} aria-label={item.name} title={item.name}>
-      {defaultContent}
-    </AccordionItem>
-  );
-};
-
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
