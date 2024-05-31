@@ -9,6 +9,7 @@ import {
   ReactNode,
   useEffect,
   useLayoutEffect,
+  useMemo,
   useState,
 } from "react";
 import { HTMLMotionProps, motion, MotionConfig, Variants } from "framer-motion";
@@ -17,6 +18,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import { jump } from "@/utils/jump";
+import SearchPanel from "@/components/SearchPanel";
 
 const shopImgs: string[] = [
   `/logo1_24529.png`,
@@ -250,7 +253,8 @@ const StartButton = () => {
         // <ButtonIcon />
       }
       onClick={() => {
-        console.log("123");
+        window.location.href =
+          "https://m.fastmoss.com/pages/userCenter/H5Login/index";
       }}
     >
       Start Free Trial
@@ -361,7 +365,16 @@ const DoForU = () => {
             </SlowInWrap>
           </div>
         }
-        buttonSlot={<Button color="primary">See Top Products</Button>}
+        buttonSlot={
+          <Button
+            color="primary"
+            onClick={() => {
+              jump("/pages/searchListPage/index?rank=top");
+            }}
+          >
+            See Top Products
+          </Button>
+        }
       />
     );
   };
@@ -411,7 +424,16 @@ const DoForU = () => {
             </SlowInHorizontal>
           </div>
         }
-        buttonSlot={<Button color="primary">Search Product</Button>}
+        buttonSlot={
+          <Button
+            color="primary"
+            onClick={() => {
+              jump("/pages/searchListPage/index?rank=top");
+            }}
+          >
+            Search Product
+          </Button>
+        }
       />
     );
   };
@@ -460,7 +482,16 @@ const DoForU = () => {
             </SlowInHorizontal>
           </div>
         }
-        buttonSlot={<Button color="primary">See Top Creators</Button>}
+        buttonSlot={
+          <Button
+            color="primary"
+            onClick={() => {
+              jump("/pages/searchListPage/index?rank=follower");
+            }}
+          >
+            See Top Creators
+          </Button>
+        }
       />
     );
   };
@@ -521,7 +552,16 @@ const DoForU = () => {
             </SlowInWrap>
           </div>
         }
-        buttonSlot={<Button color="primary">See Top Videos</Button>}
+        buttonSlot={
+          <Button
+            color="primary"
+            onClick={() => {
+              jump("/pages/searchListPage/index?rank=video");
+            }}
+          >
+            See Top Videos
+          </Button>
+        }
       />
     );
   };
@@ -557,7 +597,16 @@ const DoForU = () => {
             </SlowInWrap>
           </div>
         }
-        buttonSlot={<Button color="primary">Search Shops</Button>}
+        buttonSlot={
+          <Button
+            color="primary"
+            onClick={() => {
+              jump("/pages/searchListPage/index?rank=shop");
+            }}
+          >
+            Search Shops
+          </Button>
+        }
       />
     );
   };
@@ -607,6 +656,9 @@ const DisCord = () => {
                 ></Image>
               </div>
             }
+            onClick={() => {
+              window.open("https://discord.gg/2PtkUnckt6", "_blank");
+            }}
             color="primary"
           >
             Join now
@@ -617,93 +669,113 @@ const DisCord = () => {
   );
 };
 
-export default function Home() {
-  const renderHeadView = () => {
+const HeadView = () => {
+  const [show, setShow] = useState<boolean>(false);
+
+  const searchPanel = useMemo(() => {
     return (
-      <div className="py-10 w-full px-4 bg-liner-gradient-home">
-        <h1 className="text-center font-bold text-[26px] px-8 mb-6 mt-10">
-          All the data you need to start and grow your TikTok Shop
-        </h1>
-
-        <p className="font-normal text-sm text-center mb-4">
-          See which products, creators and videos are generating the most sales
-          in any category with <span className="text-vi font-bold"> 60M+ </span>{" "}
-          products sales data on FastMoss.
-        </p>
-
-        {/* SearchBar */}
-        <motion.div
-          whileTap={{ scale: 0.96 }}
-          onClick={() => {
-            console.log("open the search page");
-          }}
-          className="mb-[100px] flex cursor-pointer items-center border-2 border-solid border-vi py-5 pl-4 pr-2 rounded-xl bg-white"
-        >
-          {/* TODO: */}
-          <div className="mr-2">
-            <Image
-              src={CDN_PREFIX_PC + "/searchIcon_m_home_528.png"}
-              width={12}
-              height={12}
-              alt="search"
-              radius="none"
-            />
-          </div>
-          <span className="select-none text-oe text-xs font-medium text-[#99A8BA]">
-            Search for any product / creator / shop on TikTok
-          </span>
-        </motion.div>
-
-        <div className="text-center mb-6">
-          <StartButton></StartButton>
-        </div>
-
-        <h2 className="select-none text-base font-bold text-center px-8 mb-5">
-          Trusted by over <span className="text-vi"> 30,000 </span> TikTok
-          Sellers and Agencies :
-        </h2>
-        <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-40px),transparent_100%)]">
-          <ul className="bg-opacity-0 flex items-center [&_li]:mx-[12px] [&_img]:max-w-none animate-infinite-scroll">
-            {shopImgs.map((img: string, idx: number) => (
-              <li key={idx}>
-                <Image
-                  // className="mix-blend-multiply"
-                  width={72}
-                  height={24}
-                  src={`${CDN_PREFIX_PC}${img}`}
-                  alt={img}
-                  radius="none"
-                />
-              </li>
-            ))}
-          </ul>
-          <ul
-            className="flex  items-center [&_li]:mx-[12px] [&_img]:max-w-none animate-infinite-scroll"
-            aria-hidden="true"
-          >
-            {shopImgs.map((img: string, idx: number) => (
-              <li key={idx}>
-                <Image
-                  // className="mix-blend-multiply"
-                  width={72}
-                  height={24}
-                  src={`${CDN_PREFIX_PC}${img}`}
-                  alt={img}
-                  radius="none"
-                />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+      <SearchPanel
+        open={show}
+        onClose={() => {
+          setShow(false);
+        }}
+      />
     );
-  };
+  }, [show]);
 
+  return (
+    <div className="py-10 w-full px-4 bg-liner-gradient-home">
+      <h1 className="text-center font-bold text-[26px] px-8 mb-6 mt-10">
+        All the data you need to start and grow your TikTok Shop
+      </h1>
+
+      <p className="font-normal text-sm text-center mb-4">
+        See which products, creators and videos are generating the most sales in
+        any category with <span className="text-vi font-bold"> 60M+ </span>{" "}
+        products sales data on FastMoss.
+      </p>
+
+      {/* SearchBar */}
+      <SearchPanel
+        open={show}
+        onClose={() => {
+          setShow(false);
+        }}
+      />
+      <motion.div
+        whileTap={{ scale: 0.96 }}
+        onClick={() => {
+          setShow(true);
+          console.log("open the search page");
+        }}
+        className="mb-[100px] flex cursor-pointer items-center border-2 border-solid border-vi py-5 pl-4 pr-2 rounded-xl bg-white"
+      >
+        {/* TODO: */}
+        <div className="mr-2">
+          <Image
+            src={CDN_PREFIX_PC + "/searchIcon_m_home_528.png"}
+            width={12}
+            height={12}
+            alt="search"
+            radius="none"
+          />
+        </div>
+        <span className="select-none text-oe text-xs font-medium text-[#99A8BA]">
+          Search for any product / creator / shop on TikTok
+        </span>
+      </motion.div>
+
+      <div className="text-center mb-6">
+        <StartButton></StartButton>
+      </div>
+
+      <h2 className="select-none text-base font-bold text-center px-8 mb-5">
+        Trusted by over <span className="text-vi"> 30,000 </span> TikTok Sellers
+        and Agencies :
+      </h2>
+      <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-40px),transparent_100%)]">
+        <ul className="bg-opacity-0 flex items-center [&_li]:mx-[12px] [&_img]:max-w-none animate-infinite-scroll">
+          {shopImgs.map((img: string, idx: number) => (
+            <li key={idx}>
+              <Image
+                // className="mix-blend-multiply"
+                width={72}
+                height={24}
+                src={`${CDN_PREFIX_PC}${img}`}
+                alt={img}
+                radius="none"
+              />
+            </li>
+          ))}
+        </ul>
+        <ul
+          className="flex  items-center [&_li]:mx-[12px] [&_img]:max-w-none animate-infinite-scroll"
+          aria-hidden="true"
+        >
+          {shopImgs.map((img: string, idx: number) => (
+            <li key={idx}>
+              <Image
+                // className="mix-blend-multiply"
+                width={72}
+                height={24}
+                src={`${CDN_PREFIX_PC}${img}`}
+                alt={img}
+                radius="none"
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+export default function Home() {
   return (
     <>
       <Header></Header>
       <main className={`mx-auto w-full `}>
-        {renderHeadView()}
+        <HeadView />
 
         {/* do for u */}
         <DoForU />

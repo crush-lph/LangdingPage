@@ -10,7 +10,7 @@ export const headerMenuList: Array<TMenuItem> = [
     path: "/",
     children: [
       {
-        name: "product Search",
+        name: "Product Search",
         path: "/",
       },
       {
@@ -28,11 +28,11 @@ export const headerMenuList: Array<TMenuItem> = [
     path: "/",
     children: [
       {
-        name: "creator search",
+        name: "Creator Search",
         path: "/",
       },
       {
-        name: "powder Rank",
+        name: "Powder Rank",
         path: "/",
       },
       {
@@ -54,11 +54,11 @@ export const headerMenuList: Array<TMenuItem> = [
     path: "/",
     children: [
       {
-        name: "shop search",
+        name: "Shop Search",
         path: "/",
       },
       {
-        name: "shop Rank",
+        name: "Shop Rank",
         path: "/",
       },
     ],
@@ -68,11 +68,11 @@ export const headerMenuList: Array<TMenuItem> = [
     path: "/",
     children: [
       {
-        name: "video search",
+        name: "Video Search",
         path: "/",
       },
       {
-        name: "popular video",
+        name: "Popular Video",
         path: "/",
       },
     ],
