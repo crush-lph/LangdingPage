@@ -55,8 +55,9 @@ const Header: FC<NavBarProps> = () => {
         />
       </NavbarContent>
 
-      <NavbarMenu className="px-0 py-0 !backdrop-blur-2xl">
-        <Accordion showDivider={false} className="px-0 w-full">
+      {/* <NavbarMenu className="px-0 py-0 !backdrop-blur-2xl"> */}
+      <NavbarMenu className="px-0 py-0 !bg-[#f9f9f9]">
+        <Accordion showDivider={false} className="px-0 w-full bg-white">
           {headerMenuList.map((item) => {
             return (
               <AccordionItem
@@ -90,6 +91,32 @@ const Header: FC<NavBarProps> = () => {
               </AccordionItem>
             );
           })}
+        </Accordion>
+
+        <Accordion showDivider={false} className="px-0 w-full mt-5 bg-white">
+          <AccordionItem
+            aria-label="English"
+            title="English"
+            classNames={{
+              trigger: "p-5 font-bold text-base text-[#1f283c]",
+              content: " py-0",
+            }}
+          >
+            <motion.div
+              className="text-sm p-5 font-normal text-[#1f283c]"
+              initial={{
+                backgroundColor: "rgba(255,255,255,0)",
+                scale: 1,
+              }}
+              whileTap={{
+                backgroundColor: "rgb(254,245,245,1)",
+                scale: 0.95,
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              中文
+            </motion.div>
+          </AccordionItem>
         </Accordion>
       </NavbarMenu>
     </Navbar>
