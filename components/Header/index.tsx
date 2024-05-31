@@ -14,18 +14,14 @@ import {
 } from "@nextui-org/react";
 import Image from "next/image";
 import { CDN_PREFIX_PC } from "@/constants";
-import HeaderMenu from "../HeaderMenu";
 import { headerMenuList } from "./constant";
 import type { TMenuItem } from "./constant";
 import { Accordion, AccordionItem } from "@nextui-org/react";
 import { motion } from "framer-motion";
-const defaultContent =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
-interface MenuItemProps {
-  menuList: Omit<TMenuItem, "children">;
-}
 
-const Header = () => {
+interface NavBarProps {}
+
+const Header: FC<NavBarProps> = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   return (
