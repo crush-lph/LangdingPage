@@ -91,8 +91,6 @@ const SearchPanel: FC<SearchProps> = (props) => {
     };
   }, []);
 
-  console.log(unMount);
-
   if (unMount) return null;
 
   return (
@@ -101,7 +99,6 @@ const SearchPanel: FC<SearchProps> = (props) => {
         ref={ref}
         initial={{
           height: 0,
-          // opacity: 0,
           transformOrigin: "top",
         }}
         variants={list}
@@ -128,6 +125,9 @@ const SearchPanel: FC<SearchProps> = (props) => {
           fullWidth
           autoFocus
           value={searchValue}
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
           onSubmit={(e) => {
             console.log("submit");
           }}
@@ -149,7 +149,14 @@ const SearchPanel: FC<SearchProps> = (props) => {
           placeholder="Search for any product / creator / shop on TikTok"
         ></Input>
 
-        <div className="py-4">🔥Trending</div>
+        <div
+          className="py-4"
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+        >
+          🔥Trending
+        </div>
 
         <div className="grid gap-[10px] grid-cols-2">
           {trendingList?.map((item) => {
@@ -159,7 +166,7 @@ const SearchPanel: FC<SearchProps> = (props) => {
                 label={item.label}
                 name={item.name}
                 onClick={() => {
-                  // jump(item.path);
+                  jump(item.path);
                 }}
               ></CardItem>
             );

@@ -19,6 +19,7 @@ import type { TMenuItem } from "./constant";
 import { Accordion, AccordionItem } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import { MenuToggle } from "./MenuToggle";
+import { jump } from "@/utils/jump";
 
 interface NavBarProps {
   showSearchPanel?: boolean;
@@ -77,6 +78,9 @@ const Header: FC<NavBarProps> = () => {
                       initial={{
                         backgroundColor: "rgba(255,255,255,0)",
                         scale: 1,
+                      }}
+                      onClick={() => {
+                        jump(child?.path);
                       }}
                       whileTap={{
                         backgroundColor: "rgb(254,245,245,1)",
