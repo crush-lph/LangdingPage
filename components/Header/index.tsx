@@ -28,19 +28,6 @@ interface MenuItemProps {
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
-  const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
-  ];
-
   return (
     <Navbar
       classNames={{ base: "bg-[#FEF5F5]" }}
@@ -65,7 +52,7 @@ const Header = () => {
         />
       </NavbarContent>
 
-      <NavbarMenu className="px-0 py-0 blur(10px)">
+      <NavbarMenu className="px-0 py-0 !backdrop-blur-xl">
         <Accordion showDivider={false} className="px-0 w-full">
           {headerMenuList.map((item) => {
             return (
