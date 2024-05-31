@@ -15,6 +15,14 @@ export const metadata: Metadata = {
     "See which products, creators and shoppable videos are going viral on TikTok. Used by over 700,000 TikTok Shop sellers to research sales data for any product.",
   keywords:
     "FastMoss, TikTok data analysis, TikTok Shop Analytics, TikTok e-commerce, TikTok product, TikTok creator, TikTok shop, TikTok operation, TikTok analytics Tool, TikTok ads",
+  icons: {
+    icon: [
+      {
+        url: "/favicon.svg",
+        href: "/favicon.svg",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
