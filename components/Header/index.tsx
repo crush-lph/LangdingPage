@@ -93,7 +93,10 @@ const Header: FC<NavBarProps> = () => {
           })}
         </Accordion>
 
-        <Accordion showDivider={false} className="px-0 w-full mt-5 bg-white">
+        <Accordion
+          showDivider={false}
+          className="px-0 w-full mt-5 bg-white mb-[200px]"
+        >
           <AccordionItem
             aria-label="English"
             title="English"

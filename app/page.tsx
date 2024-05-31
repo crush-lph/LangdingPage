@@ -220,6 +220,7 @@ const TextSlowUpWrap: FC<MotionWrapProps> = ({ children, ...rest }) => {
           ease: "easeInOut",
         },
       }}
+      className="select-none"
       // viewport={{ once: true }}
       {...rest}
     >
@@ -264,10 +265,10 @@ const GetStart = () => {
   return (
     <div className="relative bg-[#fef5f5] p-10 flex flex-col items-center">
       <TextSlowUpWrap className="font-bold text-base">
-        <h3>Get started with FastMoss today</h3>
+        <h3 className="select-none">Get started with FastMoss today</h3>
       </TextSlowUpWrap>
 
-      <TextSlowUpWrap className="text-center mt-2  mx-8 text-sm font-normal">
+      <TextSlowUpWrap className="text-center mt-2  mx-8 text-sm font-normal ">
         Sign up now to get 3 days Basic plan for free!
       </TextSlowUpWrap>
 
@@ -648,7 +649,7 @@ export default function Home() {
               radius="none"
             />
           </div>
-          <span className="text-oe text-xs font-medium text-[#99A8BA]">
+          <span className="select-none text-oe text-xs font-medium text-[#99A8BA]">
             Search for any product / creator / shop on TikTok
           </span>
         </motion.div>
@@ -657,7 +658,7 @@ export default function Home() {
           <StartButton></StartButton>
         </div>
 
-        <h2 className="text-base font-bold text-center px-8 mb-5">
+        <h2 className="select-none text-base font-bold text-center px-8 mb-5">
           Trusted by over <span className="text-vi"> 30,000 </span> TikTok
           Sellers and Agencies :
         </h2>

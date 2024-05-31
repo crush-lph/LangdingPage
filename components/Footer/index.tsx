@@ -23,7 +23,7 @@ const FooterNav: FC<{ menu: Array<MenuItem> }> = ({ menu }) => {
         return (
           <div key={item.name}>
             <motion.div
-              className="px-4 cursor-pointer font-bold text-sm py-3"
+              className="select-none px-4 cursor-pointer font-bold text-sm py-3"
               onClick={() => {
                 handleClick(item);
               }}
@@ -53,7 +53,7 @@ const FooterNav: FC<{ menu: Array<MenuItem> }> = ({ menu }) => {
                       scale: 0.95,
                       radius: 12,
                     }}
-                    className="px-4 cursor-pointer  font-thin text-sm py-3 text-[#1F283C]"
+                    className="select-none px-4 cursor-pointer  font-thin text-sm py-3 text-[#1F283C]"
                     key={item.name}
                     onClick={() => {
                       handleClick(item);
