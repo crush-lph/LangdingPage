@@ -20,14 +20,16 @@ import { Accordion, AccordionItem } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import { MenuToggle } from "./MenuToggle";
 
-interface NavBarProps {}
+interface NavBarProps {
+  showSearchPanel?: boolean;
+}
 
 const Header: FC<NavBarProps> = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   return (
     <Navbar
-      //   classNames={{ base: "bg-[#FEF5F5]" }}
+      classNames={{ base: "bg-[#FEF5F5]" }}
       onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarContent>
@@ -53,7 +55,7 @@ const Header: FC<NavBarProps> = () => {
         />
       </NavbarContent>
 
-      <NavbarMenu className="px-0 py-0 !backdrop-blur-xl">
+      <NavbarMenu className="px-0 py-0 !backdrop-blur-2xl">
         <Accordion showDivider={false} className="px-0 w-full">
           {headerMenuList.map((item) => {
             return (
