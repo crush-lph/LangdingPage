@@ -65,7 +65,7 @@ const ClientsSwiper = () => {
         </h2>
       </TextSlowUpWrap>
       <Swiper
-        initialSlide={0}
+        // initialSlide={0}
         navigation={{
           prevEl: ".reasons_prev_el",
           nextEl: ".reasons_next_el",
