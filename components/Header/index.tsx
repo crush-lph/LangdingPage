@@ -18,6 +18,7 @@ import { headerMenuList } from "./constant";
 import type { TMenuItem } from "./constant";
 import { Accordion, AccordionItem } from "@nextui-org/react";
 import { motion } from "framer-motion";
+import { MenuToggle } from "./MenuToggle";
 
 interface NavBarProps {}
 
@@ -26,7 +27,7 @@ const Header: FC<NavBarProps> = () => {
 
   return (
     <Navbar
-      classNames={{ base: "bg-[#FEF5F5]" }}
+      //   classNames={{ base: "bg-[#FEF5F5]" }}
       onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarContent>
@@ -42,7 +43,11 @@ const Header: FC<NavBarProps> = () => {
 
       <NavbarContent justify="end">
         <NavbarMenuToggle
-          icon={<></>}
+          icon={
+            <motion.nav animate={isMenuOpen ? "open" : "closed"}>
+              <MenuToggle></MenuToggle>
+            </motion.nav>
+          }
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           //   className="sm:hidden"
         />
