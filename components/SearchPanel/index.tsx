@@ -14,6 +14,8 @@ import React, {
 } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
+import "./index.css";
+
 interface ItemProps {
   label: ReactNode;
   name: ReactNode;
@@ -118,7 +120,7 @@ const SearchPanel: FC<SearchProps> = (props) => {
           // setOpen(false);
           close();
         }}
-        className="px-3 flex flex-col fixed z-20 max-w-full top-[var(--navbar-height)] inset-x-0 bottom-0 w-screen overflow-y-auto backdrop-blur-md"
+        className="px-3 flex flex-col fixed z-20 max-w-full top-[var(--navbar-height)] inset-x-0 bottom-0 w-screen overflow-y-auto backdrop-blur-md filterDrop"
       >
         <Input
           className="mt-5"

@@ -13,9 +13,7 @@ const FooterNav: FC<{ menu: Array<MenuItem> }> = ({ menu }) => {
    * 菜单点击事件
    * @param item 菜单项
    */
-  const handleClick = (item: MenuItem) => {
-    console.log(item);
-  };
+  const handleClick = (item: MenuItem) => {};
 
   return (
     <div className="my-8">

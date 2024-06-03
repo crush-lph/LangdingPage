@@ -706,7 +706,6 @@ const HeadView = () => {
         whileTap={{ scale: 0.96 }}
         onClick={() => {
           setShow(true);
-          console.log("open the search page");
         }}
         className="mb-[100px] flex cursor-pointer items-center border-2 border-solid border-vi py-5 pl-4 pr-2 rounded-xl bg-white"
       >
