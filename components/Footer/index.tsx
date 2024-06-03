@@ -6,6 +6,7 @@ import type { MenuItem } from "./constant";
 import { CDN_PREFIX_PC } from "@/constants";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { jump } from "@/utils/jump";
 
 // 导航
 const FooterNav: FC<{ menu: Array<MenuItem> }> = ({ menu }) => {
@@ -13,7 +14,9 @@ const FooterNav: FC<{ menu: Array<MenuItem> }> = ({ menu }) => {
    * 菜单点击事件
    * @param item 菜单项
    */
-  const handleClick = (item: MenuItem) => {};
+  const handleClick = (item: MenuItem) => {
+    jump(item.link);
+  };
 
   return (
     <div className="my-8">
@@ -22,18 +25,18 @@ const FooterNav: FC<{ menu: Array<MenuItem> }> = ({ menu }) => {
           <div key={item.name}>
             <motion.div
               className="select-none px-4 cursor-pointer font-bold text-sm py-3"
-              onClick={() => {
-                handleClick(item);
-              }}
-              initial={{
-                backgroundColor: "rgba(255,255,255,1)",
-                scale: 1,
-              }}
-              whileTap={{
-                backgroundColor: "rgb(254,245,245,1)",
-                scale: 0.95,
-              }}
-              transition={{ duration: 0.3 }}
+              // onClick={() => {
+              //   handleClick(item);
+              // }}
+              // initial={{
+              //   backgroundColor: "rgba(255,255,255,1)",
+              //   scale: 1,
+              // }}
+              // whileTap={{
+              //   backgroundColor: "rgb(254,245,245,1)",
+              //   scale: 0.95,
+              // }}
+              // transition={{ duration: 0.3 }}
             >
               {item.name}
             </motion.div>

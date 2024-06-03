@@ -77,31 +77,31 @@ export const headerMenuList: Array<TMenuItem> = [
       },
     ],
   },
-  {
-    name: "About us",
-    path: "/",
-    children: [
-      {
-        name: "products",
-        path: "/",
-      },
-      {
-        name: "products",
-        path: "/",
-      },
-    ],
-  },
+  // {
+  //   name: "About us",
+  //   path: "/",
+  //   children: [
+  //     {
+  //       name: "products",
+  //       path: "/",
+  //     },
+  //     {
+  //       name: "products",
+  //       path: "/",
+  //     },
+  //   ],
+  // },
   {
     name: "Resources",
     path: "/",
     children: [
       {
         name: "Blog",
-        path: "/",
+        path: "https://www.fastmoss.com/blog/",
       },
       {
         name: "Update log",
-        path: "/",
+        path: "https://www.fastmoss.com/blog/category/update-log/",
       },
     ],
   },

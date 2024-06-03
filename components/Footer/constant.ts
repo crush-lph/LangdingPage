@@ -10,15 +10,19 @@ export const navList: Array<MenuItem> = [
     children: [
       {
         name: "Top selling products",
+        link: "/pages/searchListPage/index?rank=top",
       },
       {
         name: "Top growing creators",
+        link: "/pages/searchListPage/index?rank=follower",
       },
       {
         name: "Top selling shops",
+        link: "/pages/searchListPage/index?rank=shop",
       },
       {
         name: "Top performance videos",
+        link: "/pages/searchListPage/index?rank=video",
       },
     ],
   },
@@ -27,9 +31,11 @@ export const navList: Array<MenuItem> = [
     children: [
       {
         name: "Blog",
+        link: "https://www.fastmoss.com/blog/",
       },
       {
         name: "Update log",
+        link: "https://www.fastmoss.com/blog/category/update-log/",
       },
     ],
   },

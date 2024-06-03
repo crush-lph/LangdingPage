@@ -27,6 +27,12 @@ body {
   overflow-y: auto;
 }
 
+.frosted-glass {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari */
+  background: rgba(255, 255, 255, 0.5);
+}
+
 main {
   width: 100%;
   overflow-x: hidden;

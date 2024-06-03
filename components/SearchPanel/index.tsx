@@ -94,7 +94,7 @@ const SearchPanel: FC<SearchProps> = (props) => {
   }, []);
 
   const handleSearch = (searchVal: string) => {
-    jump("/");
+    jump(`/pages/search/index?searchValue=${searchVal}`);
   };
 
   if (unMount) return null;
@@ -124,7 +124,7 @@ const SearchPanel: FC<SearchProps> = (props) => {
           // setOpen(false);
           close();
         }}
-        className="px-3 flex flex-col fixed z-20 max-w-full top-[var(--navbar-height)] inset-x-0 bottom-0 w-screen overflow-y-auto backdrop-blur-md filterDrop"
+        className="px-3 flex flex-col fixed z-20 max-w-full top-[var(--navbar-height)] inset-x-0 bottom-0 w-screen overflow-y-auto backdrop-blur-md filterDrop frosted-glass"
       >
         <form
           action=""

@@ -10,3 +10,9 @@
   z-index: -1;
   background-color: rgba(255, 255, 255, 0.1);
 }
+
+.frosted-glass {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* Safari */
+  background: rgba(255, 255, 255, 0.5);
+}
