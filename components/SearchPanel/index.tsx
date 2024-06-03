@@ -93,6 +93,10 @@ const SearchPanel: FC<SearchProps> = (props) => {
     };
   }, []);
 
+  const handleSearch = (searchVal: string) => {
+    jump("/");
+  };
+
   if (unMount) return null;
 
   return (
@@ -122,34 +126,47 @@ const SearchPanel: FC<SearchProps> = (props) => {
         }}
         className="px-3 flex flex-col fixed z-20 max-w-full top-[var(--navbar-height)] inset-x-0 bottom-0 w-screen overflow-y-auto backdrop-blur-md filterDrop"
       >
-        <Input
-          className="mt-5"
-          fullWidth
-          autoFocus
-          value={searchValue}
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
+        <form
+          action=""
           onSubmit={(e) => {
-            console.log("submit");
+            e.preventDefault();
+            console.log("1111111");
+            handleSearch(searchValue);
           }}
-          onValueChange={setSearchValue}
-          startContent={
-            <Image
-              src={CDN_PREFIX_PC + "/searchIcon_m_home_528.png"}
-              width={12}
-              height={12}
-              alt="search"
-              radius="none"
-            />
-          }
-          classNames={{
-            base: "",
-            inputWrapper: "!bg-white border border-solid border-vi",
-            input: "text-gray font-normal text-xs",
-          }}
-          placeholder="Search for any product / creator / shop on TikTok"
-        ></Input>
+        >
+          <Input
+            type="search"
+            className="mt-5"
+            fullWidth
+            autoFocus
+            value={searchValue}
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+            onSubmit={(e) => {
+              console.log("submit");
+            }}
+            // onKeyDown={(e) => {
+            //   console.log(e);
+            // }}
+            onValueChange={setSearchValue}
+            startContent={
+              <Image
+                src={CDN_PREFIX_PC + "/searchIcon_m_home_528.png"}
+                width={12}
+                height={12}
+                alt="search"
+                radius="none"
+              />
+            }
+            classNames={{
+              base: "",
+              inputWrapper: "!bg-white border border-solid border-vi",
+              input: "text-gray font-normal text-xs",
+            }}
+            placeholder="Search for any product / creator / shop on TikTok"
+          ></Input>
+        </form>
 
         <div
           className="py-4"
